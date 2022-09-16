@@ -1,27 +1,22 @@
-import { Product } from "../../types";
+import { Product } from "../../graphql/prodcuts";
 
 const ProductDetail = ({
   item : {
-    category,
-    title,
-    description,
-    image,
+    imageUrl,
     price,
-    rating: {rate}
-  }
+    title,
+    description
+  },
 } : {
     item: Product
-}
-
-) => (
+}) => {
+  return (
     <div className="products-detail">
-      <p className="products-detail__category">{category}</p>
       <p className="products-detail__title">{title}</p> 
-      <img src={image} className="products-detail__image"/>
+      <img src={imageUrl} className="products-detail__image"/>
       <p className="products-detail__description">{description}</p>
-      <span className="products-detail__price">${price}</span>
-      <span className="products-detail__rating">{rate}</span>
+      <span className="products-detail__price">{price}</span>
     </div> 
-)
+)}
 
 export default ProductDetail;
